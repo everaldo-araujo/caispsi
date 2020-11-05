@@ -12,6 +12,41 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+
+  <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBA6WX0MSW-BZz78FNwwx1-X8uNV5cYMbc",
+	authDomain: "condoagil2019.firebaseapp.com",
+	databaseURL: "https://condoagil2019.firebaseio.com",
+	projectId: "condoagil2019",
+	storageBucket: "condoagil2019.appspot.com",
+	messagingSenderId: "439076319483",
+	appId: "1:439076319483:web:3f8c1b24afd5360738805e"
+  };
+firebase.initializeApp(config);
+
+const messaging = firebase.messaging();
+
+messaging.requestPermission()
+.then(function() {
+  console.log('Recebimento de notificações permitido.');
+  return messaging.getToken();
+})
+.then(function(token) {
+  console.log("Token do usuário: " + token); // Display user token
+})
+.catch(function(err) { // Happen if user deney permission
+  console.log('Sem permissão do usuário para receber notificações.', err);
+});
+
+messaging.onMessage(function(payload){
+	console.log('onMessage',payload);
+})
+
+</script>
+
   <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
