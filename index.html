@@ -35,6 +35,7 @@ messaging.requestPermission()
   return messaging.getToken();
 })
 .then(function(token) {
+  document.getElementById("h1x").innerHTML = token;
   console.log("Token do usuário: " + token); // Display user token
 })
 .catch(function(err) { // Happen if user deney permission
@@ -62,7 +63,7 @@ messaging.onMessage(function(payload){
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br>
-      <h1 class="header center orange-text">Starter Template</h1>
+      <h6 id="h1x" class="header center orange-text">Starter Template</h1>
       <div class="row center">
         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
       </div>

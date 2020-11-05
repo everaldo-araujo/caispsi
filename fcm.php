@@ -40,6 +40,7 @@ class FCM {
     */
     public function setChaveServidor($chave) {
         $this->chaveServidor = $chave;
+        echo "Chave: " . $chave;
         return $this;
     }
 
